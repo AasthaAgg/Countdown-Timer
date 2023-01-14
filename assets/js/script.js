@@ -56,5 +56,20 @@ function updateCountdown(e){
     countdownActive = setInterval(updateDOM, 1000);
 }
 
+// Reset All values
+function reset(){
+    // Hide Countdowns, show input
+    countdownEl.hidden = true;
+    inputContainer.hidden = false;
+
+    // Stop Countdown
+    clearInterval(countdownActive);
+
+    // Reset Values
+    countdownTitle = '';
+    countdownDate = '';
+}
+
 // Event Listeners
 countdownForm.addEventListener('submit', updateCountdown);
+countdownBtn.addEventListener('click', reset);
