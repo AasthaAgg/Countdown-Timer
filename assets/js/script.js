@@ -66,10 +66,18 @@ function updateCountdown(e){
     countdownTitle = e.srcElement[0].value;
     countdownDate = e.srcElement[1].value;
 
-    //Get number version of current Date, and update DOM
-    countdownValue = new Date(countdownDate).getTime();
-    // updateDOM every second
-    countdownActive = setInterval(updateDOM, 1000);
+    if(countdownTitle === ''){
+        alert("Please enter a title for what you're counting to.")
+    }
+    else if(countdownDate === ''){
+        alert('Please select a date for the countdown.');
+    }
+    else {
+        //Get number version of current Date, and update DOM
+        countdownValue = new Date(countdownDate).getTime();
+        // updateDOM every second
+        countdownActive = setInterval(updateDOM, 1000);
+    }
 }
 
 // Reset All values
